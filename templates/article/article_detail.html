@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .card-img-top {
+    width: 500px;
+    height: 800px;
+  }
+
+  .card-title {
+    color: black;
+  }
+
+</style>
+
+{% if user.is_authenticated %}
+
+<center>
+  <div class="container-fluid">
+    <div class="card">
+      <div>
+        <h1 class="card-title">{{ object.title }}</h1>
+      </div>
+      <div class="card-body">
+       
+        {% if object.photo %}
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="{{ object.photo.url }}"
+                class="card-img-top" alt="">
+              <hr>
+              <h5 class="card-title">{{ object.body | safe}}</h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ object.photo.url }}" target="_blank">Rasmni kattalashtirish</a>
+                <a href="{% url 'article_list' %}" class="btn btn-primary btn-lg">« Ortga qaytish</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {% endif %}
+      </div>
+      <p></p>
+    </div>
+
+{% else %}
+  
+  
+  <h1>Sign up first to use the site !!</h1>
+  <a class="btn btn-outline-info" href="{% url 'login' %}">Sign In</a>
+  <a class="btn btn-outline-danger" href="{% url 'signup' %}">Sign Up</a>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endif %}
+</center>
+{% endblock content %}

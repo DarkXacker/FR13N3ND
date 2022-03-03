@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html> 
+<html lang="en"> 
+  
+  <head> 
+      <!-- Required meta tags --> 
+      <meta charset="utf-8"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+      
+  </head>
+
+  {% block content %}
+
+  {% if user.is_authenticated %}
+    {% if video %}
+
+    <div class="row">
+
+      {% for x in video %} 
+      <div class="col-lg-4">
+        <video class="embed-responsive embed-responsive-16by9" controls="controls" > 
+          <source src="{{x.video.url}}" type="video/mp4"/> 
+        </video> 
+        <div class="box-element product">
+          <h3><strong>{{x.caption}}</strong></h3>
+          <hr>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  
+  {% else %}
+  
+  <center>
+    <h1 class="pt-5">Sorry, no information found</h1>
+    <h3>No videos available yet !!</h3>
+  </center>
+
+  {% endif %}
+
+  {% else %}
+
+    <center>
+      <h1>Sign up first to use the site !!</h1>
+      <a class="btn btn-outline-info" href="{% url 'login' %}">Sign In</a>
+      <a class="btn btn-outline-danger" href="{% url 'signup' %}">Sign Up</a>
+    </center>
+  {% endif %}
+  </body> 
+</html>
+
+<style>
+  
+    @media only screen and (max-width: 1240px){
+          .embed-responsive-16by9 {
+            width: 100%;
+            height: 100%;
+          }
+    }
+
+    @media only screen and (min-width: 209){
+          .embed-responsive-16by9 {
+            width: 10%;
+            height: 100%;
+          }
+    }
+</style>
+
+{% endblock content %}

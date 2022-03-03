@@ -1,0 +1,143 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{% static 'main/assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/assets/css/Header-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'main/assets/css/Projects-Horizontal.css' %}">
+    <link rel="stylesheet" href="{% static 'main/assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/assets/css/Team-Grid.css' %}">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FR13NDS</title>
+</head>
+    <body>
+        
+        {% if user.is_authenticated %}
+            <header class="header-dark">
+                <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
+                    <div class="container"><a class="navbar-brand" href="#">FR13NDS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="#">Channel</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Menu </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{% url 'article_list' %}">Posts</a>
+                                        <a class="dropdown-item" href="{% url 'news_site' %}">Videos</a>
+                                        <a class="dropdown-item" href="{% url 'youtube_video' %}">Yotube videos</a></div>
+                                </li>
+                            </ul>
+                            <form class="me-auto" target="_self">
+                                                
+                                <form class="me-auto" target="_self">
+                                    <div class="d-flex align-items-center"></div>
+                                </form><span class="navbar-text"><a class="login" href="{% url 'password_change' %}">Change Password</a></span>
+                                <a class="btn btn-light action-button" role="button" href="{% url 'logout' %}">Log Out</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container hero">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="text-center">FR13NDS HACKING GROUP</h1>
+                            <div class="ratio ratio-16x9"><iframe></iframe><img src="{% static 'main/assets/img/logo.jpg' %}" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {% else %}
+            
+            <header class="header-dark">
+                <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
+                    <div class="container"><a class="navbar-brand" href="#">FR13NDS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="#">Channel</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Menu </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{% url 'login' %}">Sign In</a>
+                                        <a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a>
+                                </li>
+                            </ul>
+                            <form class="me-auto" target="_self">
+                                                
+                                <form class="me-auto" target="_self">
+                                    <div class="d-flex align-items-center"></div>
+                                </form><span class="navbar-text"><a class="login" href="{% url 'login' %}">Sign In</a></span>
+                                <a class="btn btn-light action-button" role="button" href="{% url 'signup' %}">Sign Up</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container hero">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1 class="text-center">FR13NDS HACKING GROUP</h1>
+                            <div class="ratio ratio-16x9"><iframe></iframe><img src="{% static 'main/assets/img/logo.jpg' %}" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {% endif %}
+            
+            <section class="projects-horizontal">
+                <div class="container">
+                    <div class="intro">
+                        <h2 class="text-center">MEMBERS GROUP</h2>
+                        <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+                    </div>
+                    <div class="row projects">
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="{% static 'main/assets/img/1.jpg' %}"></a></div>
+                                <div class="col">
+                                    <h3 class="name">UZKHAN</h3>
+                                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="{% static 'main/assets/img/2.jpg' %}"></a></div>
+                                <div class="col">
+                                    <h3 class="name">DarkSoul</h3>
+                                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="{% static 'main/assets/img/4.jpg' %}"></a></div>
+                                <div class="col">
+                                    <h3 class="name">SCAR</h3>
+                                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6 item">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="{% static 'main/assets/img/3.jpg' %}"></a></div>
+                                <div class="col">
+                                    <h3 class="name">KENT</h3>
+                                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <script src="{% static 'main/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+        </body>
+</html>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    body {
+        text-align: center;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .post-entry a {
+        margin: 0;
+        text-decoration: none;
+    }
+
+    .post-entry p {
+        margin: 0;
+        font-weight: 400;
+    }
+
+    header {
+        color: red;
+    }
+
+    .white {
+        color: #fff;
+    }
+
+    .whiteP {
+        color: rgb(17, 161, 180);
+    }
+
+</style>
+
+<title>FR13NDS</title>
+
+{% if user.is_authenticated %}
+    {% for article in object_list %}
+
+    {% if article %}
+    <div class="post-entry">
+        <a href="{% url 'article_detail' article.pk  %}">
+            <h2 class="white">{{ article.title }}</h2>
+            <div class="whiteP">{{ article.body | safe | slice:":100"}}</div>
+        </a>
+        <hr>
+    </div>
+       
+    {% endif %}
+    {% endfor %}
+    
+{% else %}
+    <center>
+        <h1>Sign up first to use the site !!</h1>
+        <a class="btn btn-outline-info" href="{% url 'login' %}">Sign In</a>
+        <a class="btn btn-outline-danger" href="{% url 'signup' %}">Sign Up</a>
+    </center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endif %}
+{% endblock content %}
+
+
